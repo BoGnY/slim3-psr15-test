@@ -3,7 +3,7 @@ return [
     'settings' => [
         // Slim Settings
         'determineRouteBeforeAppMiddleware' => false,
-        'displayErrorDetails' => false,
+        'displayErrorDetails' => true,
 
         // View settings
         'view' => [
@@ -21,4 +21,5 @@ return [
             'path' => __DIR__ . '/../log/app.log',
         ],
     ],
+    "callableResolver" => new Bnf\Slim3Psr15\CallableResolver,
 ];

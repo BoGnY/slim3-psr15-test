@@ -5,16 +5,17 @@ use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Slim\Container;
 
 final class HomeAction
 {
     private $view;
     private $logger;
 
-    public function __construct(Twig $view, LoggerInterface $logger)
+    public function __construct(Container $c)
     {
-        $this->view = $view;
-        $this->logger = $logger;
+        $this->view = $c->get("view");
+        $this->logger = $c->get("logger");
     }
 
     public function __invoke(Request $request, Response $response, $args)
